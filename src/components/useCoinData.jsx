@@ -20,6 +20,8 @@ export default function useCoinData() {
   
     useEffect(() => {
   
+      let flag = true;
+
       const fetchData = async function () {
   
         const currentTime = new Date().getTime();
@@ -31,9 +33,11 @@ export default function useCoinData() {
           const fetchedData = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en");
           const jsonData = await fetchedData.json();
           const coinArray = jsonData.slice(0, 3);
-          localStorage.setItem(cacheTimeKey, new Date().getTime());
-          localStorage.setItem(cacheCoins, JSON.stringify(coinArray));
-          setCoins(coinArray);
+          if(flag) {
+            localStorage.setItem(cacheTimeKey, new Date().getTime());
+            localStorage.setItem(cacheCoins, JSON.stringify(coinArray));
+            setCoins(coinArray);
+          }
         }else {
           console.log("keep using the old cache");
         }
@@ -41,7 +45,9 @@ export default function useCoinData() {
       }
       
       fetchData();
-  
+      
+      return () => flag = false;
+
     },[fetchFlag])
   
     useEffect(() => {
