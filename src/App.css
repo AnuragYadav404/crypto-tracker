@@ -7,7 +7,7 @@ body {
   font-family: "Open Sans", sans-serif;
   font-weight: 300;
   line-height: 1.42em;
-  color: #a7a1ae;
+  color: #eee6f7;
   background-color: #1f2739;
   height: 100vh;
   justify-content: center;
@@ -175,4 +175,11 @@ table .container {
 span, h3 {
     margin-top: 16px;
     margin-bottom: 0px;
+}
+
+.negative {
+  color: red;
+}
+.positive {
+  color: green;
 }
