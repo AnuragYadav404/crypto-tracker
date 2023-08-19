@@ -11,10 +11,14 @@ body {
   background-color: #1f2739;
   height: 100vh;
   justify-content: center;
+  margin: 0px;
 }
 
 .body {
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     /* width: fit-content; */
 }
 
@@ -67,11 +71,12 @@ h2 a {
 
 .container {
   text-align: left;
-  overflow: hidden;
+  overflow: auto;
   width: 80%;
   margin: 0 auto;
   display: table;
-  padding: 0 0 8em 0;
+  /* padding: 0 0 8em 0; */
+  table-layout: fixed;
 }
 
 .container td,
@@ -132,3 +137,42 @@ h2 a {
     background-color: #1f2739;
     color: #fff842; /* Yellow */
   }
+
+
+table .container {
+    padding: 0px;
+}
+
+.table-container, .thead-container {
+    max-width: 80vw;
+}
+
+.thead-container {
+    position: sticky;
+    z-index: 1;
+    top: 0;
+}
+
+.table-container {
+    overflow-y: auto;
+    margin-bottom: 16px;
+}
+
+.table-container::-webkit-scrollbar {
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+	background-color: #000000;
+}
+
+.table-container::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+span, h3 {
+    margin-top: 16px;
+    margin-bottom: 0px;
+}
